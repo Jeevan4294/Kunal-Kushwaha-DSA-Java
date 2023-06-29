@@ -2,7 +2,7 @@ package solutions;
 
 public class Patterns {
        public static void main(String[] args) {
-              pattern35(4);
+              pattern34(10);
        }
 
        // 1.  *****
@@ -482,6 +482,14 @@ public class Patterns {
        //        B A
        //        A
        static void pattern34(int n){
+              char a = 65;
+              String space = " ";
+              for(int r=n;r>0;r--){
+                     for(int c=n;c>n-r;c--){
+                            System.out.print((char)(a+c-(n-r)-1)+space);
+                     }
+                     System.out.println();
+              }
 
        }
        
@@ -491,19 +499,19 @@ public class Patterns {
        //        12344321
        static void pattern35(int n){
               for(int r=1; r<=n; r++){
-                     System.out.print(getRow(r,n));
+                     System.out.print(getRowP35(r,n));
                      System.out.println();
               }
 
        }
 
-       private static String getRow(int rowNum, int totRows){
+       private static String getRowP35(int rowNum, int totRows){
               String res = "   ";
-              for(int c = 1; c<2*totRows;c++){
+              for(int c = 1; c<=2*totRows;c++){
                      if(c <= rowNum){
                             res += c;
-                     } else if (c >= (2*totRows - rowNum)) {
-                            res += 2*totRows - c;
+                     } else if (c > (2*totRows - rowNum)) {
+                            res += 2*totRows - c+1;
                      } else {
                             res += " ";
                      }
